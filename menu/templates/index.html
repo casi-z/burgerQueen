@@ -1,0 +1,32 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+{% include 'layouts/head.html' %}
+
+<body class="bg-body" data-bs-theme="light">
+
+{% include 'layouts/header.html' %}
+{% include 'layouts/promo.html' %}
+<div class="col-12 d-flex flex-column align-items-center">
+
+
+    <div class="wrapper col-xs-12 col-md-10">
+        <div class="container-fluid d-flex justify-content-between column-gap-5 my-5">
+            {% include 'layouts/categories.html' %}
+            {% include 'layouts/products.html' %}
+        </div>
+    </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous">
+
+</script>
+<script src="{% static 'js/cart-add.js' %}"></script>
+</body>
+
+</html>

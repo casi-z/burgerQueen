@@ -1,0 +1,104 @@
+@font-face {
+    font-display: swap;
+    font-family: "Rotonda";
+    font-style: normal;
+    font-weight: 500;
+    src: url(../fonts/Rotonda-Medium.woff2) format("woff2")
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Flame";
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/Flame-Regular.woff2) format("woff2")
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Flame";
+    font-style: normal;
+    font-weight: 700;
+    src: url(../fonts/Flame-Bold.woff2) format("woff2")
+}
+
+* {
+    /*color: #502314;*/
+}
+
+:root {
+    --bs-body-bg-rgb: rgb(245, 235, 220) !important;
+}
+
+.nnn {
+    /*display: none!important;*/
+}
+
+.search {
+    background-image: url(../img/search-light.svg);
+    background-position: 10px;
+    background-repeat: no-repeat;
+    border-color: #d7c7b4;
+    border-radius: 60px;
+    font: 14px/18px Rotonda;
+    padding: 8px 40px
+}
+.color-body{
+    color: #502314;
+}
+.nav-item{
+    font: 14px Flame;
+
+}
+.nav-item:hover{
+    color: #87604f;
+}
+h2{
+    font: 14px Flame!important;
+    color: #502314!important;
+    font-weight: 700!important;
+    font-size: 60px!important;
+}
+h5{
+    color: #502314;
+    font: 24px/150% Flame;
+}
+h6{
+    font-family: Flame;
+    line-height: 25px;
+    font-size: 18px;
+    color: #502314;
+}
+.product{
+    /*background: #fcf6ec;*/
+    width: calc((100% / 3) - 3rem)!important;
+}
+.cart-add-button{
+    border-radius: 20px;
+}
+.bi-cart-plus{
+    color: white;
+}
+.category-title{
+    font-size: 16px;
+}
+.header-cart-icon{
+    color: #502314;
+
+}
+.header-cart-icon::before{
+    transform: scale(2);
+
+}
+.added-product-image{
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    animation: add-product-to-cart 500ms linear forwards;
+}
+@keyframes add-product-to-cart {
+    100%{
+        top: 0;
+        left: 0;
+    }
+}

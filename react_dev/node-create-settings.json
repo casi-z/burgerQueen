@@ -1,0 +1,66 @@
+{
+    "path": "layouts",
+    "onPrefix": {
+        "default": {
+            "files": [
+                {
+                    "name": "#{componentName}.tsx",
+                    "text": [
+                        "import { ReactChild, FC } from 'react'",
+                        "import { Box, useTheme } from '@mui/material'",
+                        "",
+                        "const { log } = console",
+                        "",
+                        "interface #{componentName}Props {",
+                        "   ",
+                        "   ",
+                        "   ",
+                        "}",
+                        "",
+                        "const #{componentName}: FC<#{componentName}Props> = ({}) => {",
+                        "",
+                        "    return(",
+                        "      <Box component={'div'} className=\"#{componentName}\">",
+                        "         ",
+                        "      </Box>",
+                        "    )",
+                        "}",
+                        "export default #{componentName}"
+                    ]
+                }
+            ]
+        },
+        "small": {
+            "files": [
+                {
+                    "name": "#{componentName}.tsx",
+                    "text": [
+                        "import { ReactChild, FC } from 'react'",
+                        "import { Box, useTheme } from '@mui/material'",
+                        "import styled from 'styled-components'",
+                        "",
+                        "const { log } = console",
+                        "",
+                        "interface #{componentName}Props {",
+                        "   ",
+                        "   children?: ReactChild,",
+                        "   ",
+                        "}",
+                        "",
+                        "",
+                        "const #{componentName}: FC<#{componentName}Props> = ({ children }) => {",
+                        "",
+                        "`",
+                        "    return(",
+                        "      <Box component={'div'} className=\"#{componentName}\">",
+                        "         ",
+                        "      </Box>",
+                        "    )",
+                        "}",
+                        "export default #{componentName}"
+                    ]
+                }
+            ]
+        }
+    }
+}

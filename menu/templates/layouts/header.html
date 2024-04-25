@@ -1,0 +1,62 @@
+{% load static %}
+<header class="position-sticky z-1" style="top: 0; left: 0">
+    <nav style="display:flex; justify-content: center" class="navbar navbar-expand-lg bg-body">
+
+
+        <div>
+            <span class="navbar-toggler-icon"></span>
+        </div>
+
+        <div class="mx-3 ">
+            <h6 class="m-0">В ресторане</h6>
+            <span>Для заказа выбери рестик</span>
+        </div>
+
+        <div class="col-xs-6 mx-3">
+            <input class="form-control me-2 search" type="search" placeholder="Введи название блюда"
+                   aria-label="Search">
+        </div>
+
+
+        <a class="navbar-brand" href="#">
+            <img width="54" height="54" src="{% static "img/logo.svg" %}" alt="BQ">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link color-body" href="#">РАБОТА</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link color-body" href="#">КУПОНЫ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link color-body" href="#">QUEEN CLUB</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link color-body d-flex justify-content-center align-items-center" href="#">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                             class="">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M17.4545 5.45455C17.4545 8.467 15.0124 10.9091 12 10.9091C8.98754 10.9091 7.18545 8.467 6.78545 5.45455C6.38545 2.4421 8.98754 0 12 0C15.0124 0 17.4545 2.44209 17.4545 5.45455ZM0.4 18.6542L0 22.6969L24 23.4969V18.6542C24 15.4645 21.0153 12.8787 17.3333 12.8787H6.66667C2.98477 12.8787 0.4 15.4645 0.4 18.6542Z"
+                                  fill="currentColor"></path>
+                        </svg>
+                        ВОЙТИ
+                    </a>
+                </li>
+                <li class="nav-item d-flex justify-content-center align-items-center mx-5 header-cart position-relative">
+                    <i class="bi bi-cart4 header-cart-icon"></i>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </nav>
+</header>
