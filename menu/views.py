@@ -1,8 +1,10 @@
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
-from menu.models import DishesModel
-def index(request):
-    dishes = DishesModel.objects.values()
-    print(dishes)
-    return render(request, "index.html")
+from menu.models import ProductsModel, CategoriesModel
 
+
+def index(request):
+    productArray = ProductsModel.objects.values()
+    categoryArray = CategoriesModel.objects.values()
+    data = {"productArray": productArray, "categoryArray": categoryArray}
+    return render(request, "index.html", context=data)
