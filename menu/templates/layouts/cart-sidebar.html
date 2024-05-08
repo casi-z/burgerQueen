@@ -1,28 +1,87 @@
-<a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-  Link with href
-</a>
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-  Button with data-bs-target
-</button>
+<div class="cart-sidebar offcanvas offcanvas-end bg-body" tabindex="-1" id="cartSidebar"
+     aria-labelledby="cartSidebarLabel">
+    <div class="offcanvas-header d-flex justify-content-between">
+        <h5 class="offcanvas-title" id="cartSidebarLabel">Корзина</h5>
+        <button type="button" class="sidebar-closer" data-bs-dismiss="offcanvas" aria-label="Close">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M29.1214 0.87868C27.9498 -0.292893 26.0502 -0.292893 24.8786 0.87868L15 10.7574L5.12132 0.87868C3.94974 -0.292891 2.05026 -0.292891 0.878679 0.87868C-0.202772 1.96014 -0.28596 3.66182 0.629113 4.8387L0.878679 5.12132L10.7574 15L0.878679 24.8786L0.629113 25.1614C-0.28596 26.3382 -0.202772 28.0398 0.878679 29.1214C2.05026 30.2928 3.94974 30.2928 5.12132 29.1214L15 19.2426L24.8786 29.1214C26.0502 30.2928 27.9498 30.2928 29.1214 29.1214C30.2028 28.0398 30.286 26.3382 29.3708 25.1614L29.1214 24.8786L19.2426 15L29.1214 5.12132L29.3708 4.8387C30.286 3.66182 30.2028 1.96014 29.1214 0.87868Z"
+                      fill="currentColor"></path>
+            </svg>
+        </button>
+        <button class="btn text-danger cart-sidebar__delete-all-button d-flex align-items-center">
+            <svg width="16" height="20" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg" class="">
+                <path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"
+                      d="M14.025 3.10834L11.0333 3.00001V2.41667C11.0333 1.45016 10.0332 0.883338 9.06666 0.883338L6.94999 0.666672C5.98348 0.666672 5.19999 1.45016 5.19999 2.41667V3.00001H1.99166C1.18626 3.00001 0.533325 3.65294 0.533325 4.45834V5.62501C0.533325 5.94719 0.794476 6.20834 1.11666 6.20834H15.1167C15.4388 6.20834 15.7 5.94719 15.7 5.62501L15.4833 4.56667C15.4833 3.76127 14.8304 3.10834 14.025 3.10834ZM6.36666 2.41667C6.36666 2.09511 6.62843 1.83334 6.94999 1.83334L9.06666 2.05001C9.38822 2.05001 9.86666 2.09511 9.86666 2.41667V3.00001H6.36666V2.41667ZM1.45827 7.56597C1.45331 7.46199 1.53626 7.375 1.64034 7.375H14.593C14.6971 7.375 14.78 7.46199 14.775 7.56597L13.9688 17.4498C13.9243 18.3846 13.1565 19.1167 12.221 19.1167L3.68733 19.3333C2.75181 19.3333 1.984 18.6013 1.93952 17.6665L1.45827 7.56597ZM10.35 8.68334C9.75145 8.68334 9.26666 8.94189 9.26666 9.26112L8.94166 16.5556C8.94166 16.8748 9.42645 17.1333 10.025 17.1333C10.6235 17.1333 11.1083 16.8748 11.1083 16.5556L11.4333 9.26112C11.4333 8.94189 10.9485 8.68334 10.35 8.68334ZM4.93332 9.26112C4.93332 8.94189 5.41812 8.68334 6.01666 8.68334C6.6152 8.68334 7.09999 8.94189 7.09999 9.26112V16.7722C7.09999 17.0914 6.6152 17.35 6.01666 17.35C5.41812 17.35 4.93332 17.0914 4.93332 16.7722V9.26112Z"></path>
+            </svg>
+            Убрать все
+        </button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column justify-content-between">
+        <ul class="cart-sidebar__products-list list-group">
+            <li class="list-group-item cart-sidebar__product bg-transparent d-flex border-0">
+                <img width="64" height="64" src="/static/img/product.webp" alt="">
+                <div class="">
+                    <h6 class="col-8">Острый Ангус По-французски</h6>
 
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <div>
-      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+                    <div class="col-12 d-flex justify-content-between">
+                        <div style="border: 2px solid #c1afa7;" class="cart-sidebar__quantity-buttons d-flex align-items-center justify-content-center rounded-5 ">
+
+                            <button style="background-color: #502314;" class="rounded-5 border-0 cart-sidebar__quantity-button minus-button p-0 m-0 d-flex justify-content-center align-items-center minus-button btn btn-primary">
+                                -
+                            </button>
+
+                            <span class="px-1 cart-sidebar__quantity-buttons-text">
+                                1
+                            </span>
+                            <button style="background-color: #502314;" class="rounded-5 border-0 cart-sidebar__quantity-button plus-button p-0 m-0 d-flex justify-content-center align-items-center plus-button btn btn-primary">
+                                +
+                            </button>
+
+                        </div>
+                        499.99₽
+                    </div>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                     class="position-absolute cart-product-close-button">
+                    <path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"
+                          d="M15.5314 0.46863C14.9065 -0.15621 13.8934 -0.15621 13.2686 0.46863L7.99999 4.93727L2.73137 0.46863C2.10653 -0.156209 1.09347 -0.156209 0.468629 0.46863C-0.108145 1.04541 -0.152512 1.95297 0.335527 2.58064L0.468629 2.73137L5.73725 8.00001L0.468629 13.2686L0.335527 13.4194C-0.152512 14.0471 -0.108145 14.9546 0.468629 15.5314C1.09347 16.1562 2.10653 16.1562 2.73137 15.5314L7.99999 10.2627L13.2686 15.5314C13.8934 16.1562 14.9065 16.1562 15.5314 15.5314C16.1081 14.9546 16.1525 14.0471 15.6644 13.4194L15.5314 13.2686L11.0627 8.00001L15.5314 2.73137L15.6644 2.58064C16.1525 1.95297 16.1081 1.04541 15.5314 0.46863Z"></path>
+                </svg>
+            </li>
+        </ul>
+        <div class="cart-info">
+            <hr>
+            <div class="col-12 d-flex justify-content-between flex-column">
+
+                <div class="col-12 d-flex justify-content-between">
+                    <span>
+                        <span class="cart-sidebar__products-count">1</span>
+                         товар на сумму:
+                    </span>
+                    <h6 class="cart-sidebar__price">
+                        <span class="cart-sidebar__price-content">479.99</span>
+                        ₽</h6>
+                </div>
+                <div class="col-12 d-flex justify-content-between">
+                    <span>Начислится за заказ:</span>
+                    <h6 class="cart-sidebar__crowns d-flex align-items-center">
+                        <span class="cart-sidebar__crowns-content">111</span>
+
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                             class="">
+                            <path d="M3.09211 8.34411C2.82306 7.57192 3.1609 6.72188 3.87755 6.34631C4.57994 5.9782 5.43974 6.1781 5.97891 6.76513C6.81778 7.67845 8.06826 8.8079 8.89481 8.5C9.82963 8.15177 10.3422 6.54189 10.6196 5.29296C10.7846 4.55002 11.4107 4 12.1605 4C12.8498 4 13.4541 4.46479 13.6851 5.12442C14.0597 6.19444 14.6768 7.68659 15.2939 8C15.9161 8.31603 17.1283 7.03407 17.9361 6.04791C18.4274 5.44818 19.2412 5.20399 19.9543 5.49392C20.7185 5.80466 21.1448 6.63551 20.9551 7.4492C20.4412 9.65491 19.3316 14.8793 18.7516 17C17.557 14.8929 14.6024 14.5 12.4656 14.5C10.3319 14.5 7.14208 14.8941 5.95342 17C5.01796 15.0845 3.79005 10.3472 3.09211 8.34411Z"
+                                  fill="currentColor"></path>
+                            <path d="M12.3525 16C9.89691 16 8.01079 16.8105 6.93789 18C8.0108 19.1894 10.0101 20 12.4656 20C14.9212 20 17.1864 19.1895 18.2593 18C17.1864 16.8106 14.8081 16 12.3525 16Z"
+                                  fill="currentColor"></path>
+                        </svg>
+                    </h6>
+                </div>
+                <button class="btn btn-success rounded-5">
+                    К оформлению заказа
+                </button>
+
+
+            </div>
+        </div>
     </div>
-    <div class="dropdown mt-3">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-        Dropdown button
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
-  </div>
 </div>
