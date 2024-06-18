@@ -188,11 +188,11 @@ h6 {
     margin-left: 5px;
     width: 18px; }
 
-.cart-sidebar__quantity-button {
+.control-buttons__button {
   width: 20px;
   height: 20px; }
 
-.cart-sidebar__quantity-buttons-text {
+.control-buttons__text {
   font-size: 16px;
   color: #502314; }
 
@@ -201,3 +201,19 @@ h6 {
   right: 15px;
   width: 10px;
   height: 10px; }
+
+.product-composition-tabs {
+  border-radius: 50px;
+  border: 1px solid #d7c7b4; }
+  .product-composition-tabs .nav-link {
+    border-radius: 50px;
+    background-color: transparent;
+    border: none;
+    color: #502314; }
+    .product-composition-tabs .nav-link.active {
+      background-color: #502314;
+      color: #f5ebdc; }
+
+.composition-item__name {
+  color: rgba(159, 128, 111, 0.9);
+  font: 500 16px/120% Rotonda; }

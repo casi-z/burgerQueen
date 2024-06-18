@@ -1,14 +1,165 @@
-<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+{% load static %}
+<div class="modal modal-lg fade product-modal" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content bg-body">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="productModalLabel">
                     Ангус По-французски
                 </h1>
+                <span>Вес: 313 гр</span>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                ...
+            <div class="modal-body d-flex">
+                <img width="200" height="200" src="{% static 'img/product.webp' %}" alt="Burger">
+                <div class="mx-4">
+                    <h5>Информация</h5>
+                    <p style="color: #845f50; font: 500 14px / 120% Rotonda;">
+                        Твои каникулы в Италии! Внутри этого шикарного бургера — мраморная говядина Абердин Ангус на
+                        огне под вкуснейшим итальянским соусом Песто, кусочки твёрдого сыра Пармезан и много овощей:
+                        салат Айсберг, сочные томаты, красный маринованный лук — всё под сырным соусом на булочке
+                        бриошь. Одним словом — феличита!
+
+                    </p>
+
+                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item border-0">
+                            <h5 class="accordion-header px-0" id="panelsStayOpen-headingOne">
+                                <button class="accordion-button bg-body p-0 border-0" type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                        aria-controls="panelsStayOpen-collapseOne">
+                                    <h5>Пищевая ценность:</h5>
+                                </button>
+                            </h5>
+                            <div id="panelsStayOpen-collapseOne"
+                                 class="accordion-collapse bg-body collapse show"
+                                 aria-labelledby="panelsStayOpen-headingOne">
+                                <div class="accordion-body px-0">
+                                    <ul class="nav nav-tabs p-2 col-12 product-composition-tabs overflow-hidden" id="myTab" role="tablist">
+                                        <li class="nav-item col-6" role="presentation">
+                                            <button class="nav-link col-12 py-2 active" id="hundred-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#hundred" type="button" role="tab" aria-controls="hundred"
+                                                    aria-selected="true">100 г
+                                            </button>
+                                        </li>
+                                        <li class="nav-item col-6" role="presentation">
+                                            <button class="nav-link col-12 py-2" id="all-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#all" type="button" role="tab"
+                                                    aria-controls="all" aria-selected="false">327г
+                                            </button>
+                                        </li>
+
+                                    </ul>
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="hundred" role="tabpanel"
+                                             aria-labelledby="home-tab">
+                                            <div class="product-modal_composition composition d-flex gap-3">
+                                                <div id="composition-joules" class="composition-item">
+                                                    <h6 class="composition-item__name">
+                                                        кДж
+                                                    </h6>
+                                                    <span class="composition-item__value">
+                                                        1163.9
+                                                    </span>
+                                                </div>
+                                                <div id="composition-calories" class="composition-item">
+                                                    <h6 class="composition-item__name">
+                                                        кКал
+                                                    </h6>
+                                                    <span class="composition-item__value">
+                                                        278
+                                                    </span>
+                                                </div>
+                                                <div id="composition-fats" class="composition-item">
+                                                    <h6 class="composition-item__name">
+                                                        Жиры
+                                                    </h6>
+                                                    <span class="composition-item__value">
+                                                        17.3
+                                                    </span>
+                                                    <span>г</span>
+                                                </div>
+                                                <div id="composition-squirrels" class="composition-item">
+                                                    <h6 class="composition-item__name">
+                                                        Белки
+                                                    </h6>
+                                                    <span class="composition-item__value">
+                                                        11.8
+                                                    </span>
+                                                    <span>г</span>
+                                                </div>
+                                                <div id="composition-carbohydrates" class="composition-item">
+                                                    <h6 class="composition-item__name">
+                                                        Углеводы
+                                                    </h6>
+                                                    <span class="composition-item__value">
+                                                        19.2
+                                                    </span>
+                                                    <span>г</span>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="all" role="tabpanel"
+                                             aria-labelledby="all-tab">
+                                            <div class="product-modal_composition composition d-flex gap-3">
+                                                <div id="composition-joules" class="composition-item">
+                                                    <h6 class="composition-item__name text-center">
+                                                        кДж
+                                                    </h6>
+                                                    <span class="composition-item__value text-center">
+                                                        1163.9
+                                                    </span>
+                                                </div>
+                                                <div id="composition-calories" class="composition-item">
+                                                    <h6 class="composition-item__name text-center">
+                                                        кКал
+                                                    </h6>
+                                                    <span class="composition-item__value text-center">
+                                                        278
+                                                    </span>
+                                                </div>
+                                                <div id="composition-fats" class="composition-item">
+                                                    <h6 class="composition-item__name text-center">
+                                                        Жиры
+                                                    </h6>
+                                                    <span class="composition-item__value text-center">
+                                                        17.3
+                                                    </span>
+                                                    <span>г</span>
+                                                </div>
+                                                <div id="composition-squirrels" class="composition-item">
+                                                    <h6 class="composition-item__name text-center">
+                                                        Белки
+                                                    </h6>
+                                                    <span class="composition-item__value text-center">
+                                                        11.8
+                                                    </span>
+                                                    <span>г</span>
+                                                </div>
+                                                <div id="composition-carbohydrates" class="composition-item">
+                                                    <h6 class="composition-item__name text-center">
+                                                        Углеводы
+                                                    </h6>
+                                                    <span class="composition-item__value text-center">
+                                                        19.2
+                                                    </span>
+                                                    <span>г</span>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

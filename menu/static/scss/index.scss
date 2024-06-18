@@ -258,3 +258,28 @@ h6 {
   width: 10px;
   height: 10px;
 }
+
+.product-composition-tabs {
+  border-radius: 50px;
+  border: 1px solid #d7c7b4;
+
+  .nav-link {
+    border-radius: 50px;
+    background-color: transparent;
+    border: none;
+    color: #502314;
+
+    &.active {
+      background-color: #502314;
+      color: rgb(245, 235, 220);
+    }
+  }
+}
+
+.composition-item {
+  &__name {
+    color: hsla(21, 20%, 53%, .9);
+    font: 500 16px/120% Rotonda;
+  }
+
+}
