@@ -8,3 +8,9 @@ def index(request):
     categoryArray = CategoriesModel.objects.values()
     data = {"productArray": productArray, "categoryArray": categoryArray}
     return render(request, "index.html", context=data)
+    
+def order(request):
+    method = request.method
+    if method == "POST":
+        data = json.loads(request.body)
+        print(data)

@@ -18,8 +18,19 @@ class Cart {
         this.price = 0
         this.crowns = this.price / 6
         this.sidebar = document.querySelector('.cart-sidebar')
+        this.order = this.order.bind(this)
         rootElement.addEventListener('click', () => this.initSidebar())
 
+    }
+    async order(){
+        console.log(this)
+        const data = {
+            type: 'restaurant',
+            address: '',
+            products: this.products.map(product => product.id),
+            price: this.price
+        }
+        axios.post('/order/', data)
     }
 
     disableRootElement() {
@@ -89,6 +100,7 @@ class Cart {
     addSidebarEvents() {
 
         const deleteAllButton = this.sidebar.querySelector('.cart-sidebar__delete-all-button')
+        const orderButton = this.sidebar.querySelector('#order-button')
         const productsArray = document.querySelectorAll('.cart-sidebar__product')
         deleteAllButton.addEventListener('click', () => this.deleteAllProducts())
 
@@ -116,17 +128,18 @@ class Cart {
 
             minusButton.addEventListener('click', () => {
 
-                //this.deleteProduct(Number(product.dataset.productId))
-                // if (quantity <= 1) {
-                //     hideControlButtons(product)
-                //     return
-                // }
+                this.deleteProduct(Number(product.dataset.productId))
+                if (quantity <= 1) {
+                    hideControlButtons(product)
+                    return
+                }
                 plusButton.disabled = false
                 quantity--
                 quantityElement.textContent = quantity
                 this.initSidebar()
 
             })
+            orderButton.addEventListener('click', this.order)
         })
 
     }
@@ -275,11 +288,16 @@ function hideControlButtons(product) {
 
 productArray.forEach(product => {
 
-    const cartAddButton = product.querySelector('.cart-add-button')
 
 
-    cartAddButton.addEventListener('click', () => {
-        cart.addProduct(Number(product.dataset.productId))
-        setControlButtons(product)
+    product.addEventListener('click', () => {
+
+        const productModal = document.querySelector('#productModal')
+        productModal.dataset.productId = product.dataset.productId
     })
+})
+const productAddButton = document.querySelector('#add')
+productAddButton.addEventListener('click', event => {
+    const productId = productAddButton.closest('#productModal').dataset.productId
+    cart.addProduct(productId)
 })
