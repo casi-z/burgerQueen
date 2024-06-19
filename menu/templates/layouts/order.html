@@ -1,3 +1,4 @@
+{% include 'layouts/order-modal.html' %}
 <div class="col-12 h-12 d-flex">
     <div class="col-6 h-12">
         <h1>Оформление заказа</h1>
@@ -22,7 +23,7 @@
         <span>Будет готов к <span id="time"></span></span>
     </div>
     <div class="col-6 d-flex align-items-center justify-content-center h-12">
-        <div class="col-6 p-5 bg-white rounded-5">
+        <div class="col-7 p-5 bg-white rounded-5">
             <h6>Состав заказа</h6>
             <hr>
             <div class="d-flex justify-content-between">
@@ -32,7 +33,7 @@
                     P
                 </h6>
             </div>
-            <button  class="btn btn-success col-12" type="submit">
+            <button id="buy-button" class="btn btn-success col-12" type="submit">
                 Оплатить
                 <span id="buy-button-price"></span>
                 Р

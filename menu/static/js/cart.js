@@ -6,7 +6,58 @@ $.ajaxSetup({
         }
     }
 });
+$(document).ready(function () {
+    $('#order-modal').modal('show');
+})
+class Order {
+    constructor(data){
+        this.data = data;
+        const self = this;
+        $.ajax({
+            type: "POST",
+            url: "/order/",
+            data: JSON.stringify(data),
+            success: function (response) {
+                self.id = response.id;
+                self.openModal()
 
+
+            },
+            error: function (xhr, status, error) {
+                // Обработка ошибки
+                console.error(error);
+            }
+        });
+
+    }
+
+    updateStatus(){
+         const self = this;
+         const data = {id: self.id};
+        $.ajax({
+            type: "POST",
+            url: "/order/status/",
+            data: JSON.stringify(data),
+            success: function (response) {
+                console.log(response);
+                const orderIdTarget = document.querySelector('#order-id')
+                orderIdTarget.textContent = this.id;
+
+
+            },
+            error: function (xhr, status, error) {
+                // Обработка ошибки
+                console.error(error);
+            }
+        });
+    }
+    openModal(){
+        $('#order-modal').modal('show');
+        const orderIdTarget = document.querySelector('#order-id')
+        orderIdTarget.textContent = this.id;
+        // this.updateStatus()
+    }
+}
 
 class Product {
     constructor(id) {
@@ -29,12 +80,25 @@ class Cart {
         this.crowns = this.price / 6
         this.sidebar = document.querySelector('.cart-sidebar')
         this.createOrderPage = this.createOrderPage.bind(this)
+        this.order = this.order.bind(this)
         rootElement.addEventListener('click', () => this.initSidebar())
 
     }
+    async order(){
+        const data = {
+            type: 'restaurant',
+            restaurantId: 1,
+            products: this.products.map(product => product.id),
+            data: {csrfmiddlewaretoken: document.querySelector('[name=csrfmiddlewaretoken]').value},
+            cookingTime: 0,
+            price: this.price
+        }
+        data.cookingTime = data.products.length * 3
+        return new Order(data)
 
+    }
     async createOrderPage() {
-        console.log(this)
+
         const data = {
             type: 'restaurant',
             restaurantId: 1,
@@ -42,7 +106,7 @@ class Cart {
             data: {csrfmiddlewaretoken: document.querySelector('[name=csrfmiddlewaretoken]').value},
             price: this.price
         }
-
+        const self = this
 
         $.ajax({
             type: "GET",
@@ -68,6 +132,13 @@ class Cart {
                 }
                 initTime()
                 setTimeout(initTime, 5000)
+                const priceTarget = document.querySelector('#price')
+                const buyButtonPrice = document.querySelector('#buy-button-price')
+                buyButtonPrice.textContent = data.price
+                priceTarget.textContent = data.price
+
+                const buyButton = document.querySelector('#buy-button')
+                buyButton.addEventListener('click', self.order)
             },
             error: function (xhr, status, error) {
                 // Обработка ошибки

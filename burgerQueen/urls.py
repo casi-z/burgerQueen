@@ -27,6 +27,7 @@ urlpatterns = [
     path('menu/', menu_views.index, name='menu'),
     path('order-page/', menu_views.order_page, name='order_page'),
     path('order/', menu_views.order, name='menu'),
+    path('order/status/', menu_views.order, name='menu'),
     path('register/', menu_views.register, name='register'),
     path('login/', LoginView.as_view(template_name='login.html'), name='login'),
 
