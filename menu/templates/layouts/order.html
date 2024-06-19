@@ -1,0 +1,42 @@
+<div class="col-12 h-12 d-flex">
+    <div class="col-6 h-12">
+        <h1>Оформление заказа</h1>
+
+        <h4>Адрес ресторана</h4>
+        <form action="">
+            <div class="form-check d-flex flex-column">
+                <input class="form-check-input" type="radio" name="noginsk" id="noginsk">
+                <label class="form-check-label" for="noginsk">
+                    Ногинск
+                </label>
+                <input class="form-check-input" type="radio" name="electrostal" id="electrostal">
+                <label class="form-check-label" for="electrostal">
+                    Электросталь
+                </label>
+            </div>
+
+        </form>
+        <span id="address"></span>
+
+        <h4>Время</h4>
+        <span>Будет готов к <span id="time"></span></span>
+    </div>
+    <div class="col-6 d-flex align-items-center justify-content-center h-12">
+        <div class="col-6 p-5 bg-white rounded-5">
+            <h6>Состав заказа</h6>
+            <hr>
+            <div class="d-flex justify-content-between">
+                <span><span id="products-count">1</span> товар на сумму</span>
+                <h6>
+                    <span id="price"></span>
+                    P
+                </h6>
+            </div>
+            <button  class="btn btn-success col-12" type="submit">
+                Оплатить
+                <span id="buy-button-price"></span>
+                Р
+            </button>
+        </div>
+    </div>
+</div>

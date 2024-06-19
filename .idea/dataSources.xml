@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="db" uuid="526a03fa-e197-425a-80c7-f2f27427a867">
+    <data-source source="LOCAL" name="db" uuid="13639c1e-e30b-4b49-bb93-ecc0b7f5bd56">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\seryo\PycharmProjects\burgerQueen\db.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\EmorfTv\PhpstormProjects\burgerQueen\db.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>

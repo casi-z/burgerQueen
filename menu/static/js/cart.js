@@ -1,3 +1,13 @@
+document.wrapper = document.querySelector('.wrapper')
+$.ajaxSetup({
+    beforeSend: function (xhr, settings) {
+        if (!this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", $('[name=csrfmiddlewaretoken]').val());
+        }
+    }
+});
+
+
 class Product {
     constructor(id) {
         this.id = id
@@ -18,19 +28,52 @@ class Cart {
         this.price = 0
         this.crowns = this.price / 6
         this.sidebar = document.querySelector('.cart-sidebar')
-        this.order = this.order.bind(this)
+        this.createOrderPage = this.createOrderPage.bind(this)
         rootElement.addEventListener('click', () => this.initSidebar())
 
     }
-    async order(){
+
+    async createOrderPage() {
         console.log(this)
         const data = {
             type: 'restaurant',
-            address: '',
+            restaurantId: 1,
             products: this.products.map(product => product.id),
+            data: {csrfmiddlewaretoken: document.querySelector('[name=csrfmiddlewaretoken]').value},
             price: this.price
         }
-        axios.post('/order/', data)
+
+
+        $.ajax({
+            type: "GET",
+            url: "/order-page/",
+
+            success: function (response) {
+                // Обработка успешного ответа от сервера
+                document.querySelector('.wrapper').innerHTML = response
+
+                function initTime() {
+                    const timeTarget = document.querySelector('#time')
+                    const cookingTime = data.products.length * 3
+                    const date = new Date()
+                    let hours = date.getHours()
+                    let minutes = date.getMinutes()
+                    if (minutes + cookingTime >= 60) {
+                        hours += 1
+                        minutes -= minutes + cookingTime - 60
+                    } else {
+                        minutes += cookingTime
+                    }
+                    timeTarget.textContent = `${hours}:${minutes}`
+                }
+                initTime()
+                setTimeout(initTime, 5000)
+            },
+            error: function (xhr, status, error) {
+                // Обработка ошибки
+                console.error(error);
+            }
+        });
     }
 
     disableRootElement() {
@@ -105,7 +148,6 @@ class Cart {
         deleteAllButton.addEventListener('click', () => this.deleteAllProducts())
 
 
-
         productsArray.forEach(product => {
             const plusButton = product.querySelector('.plus-button')
             const minusButton = product.querySelector('.minus-button')
@@ -139,7 +181,7 @@ class Cart {
                 this.initSidebar()
 
             })
-            orderButton.addEventListener('click', this.order)
+            orderButton.addEventListener('click', this.createOrderPage)
         })
 
     }
@@ -287,7 +329,6 @@ function hideControlButtons(product) {
 }
 
 productArray.forEach(product => {
-
 
 
     product.addEventListener('click', () => {

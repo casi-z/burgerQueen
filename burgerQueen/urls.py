@@ -19,9 +19,16 @@ from django.urls import path
 from menu import views as menu_views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.views import LoginView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('menu/', menu_views.index, name='menu'),
+    path('order-page/', menu_views.order_page, name='order_page'),
     path('order/', menu_views.order, name='menu'),
+    path('register/', menu_views.register, name='register'),
+    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

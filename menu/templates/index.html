@@ -9,9 +9,9 @@
 {% include 'layouts/header.html' %}
 {% include 'layouts/promo.html' %}
 <div class="col-12 d-flex flex-column align-items-center">
+    {% csrf_token %}
 
-
-    <div class="wrapper col-xs-12 col-md-9">
+    <div style="min-height: 100vh" class="wrapper col-xs-12 col-md-9">
         <div class="container-fluid d-flex justify-content-between column-gap-5 my-5">
             {% include 'layouts/categories.html' %}
             {% include 'layouts/products.html' %}
@@ -28,9 +28,10 @@
         crossorigin="anonymous">
 
 </script>
-<script src="{% static 'js/cart.js' %}"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="{% static 'js/cart.js' %}"></script>
 </body>
 
 </html>
