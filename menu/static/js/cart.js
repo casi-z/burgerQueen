@@ -55,7 +55,8 @@ class Order {
         $('#order-modal').modal('show');
         const orderIdTarget = document.querySelector('#order-id')
         orderIdTarget.textContent = this.id;
-        // this.updateStatus()
+        this.updateStatus()
+        setTimeout(this.updateStatus, 2000)
     }
 }
 
@@ -93,6 +94,7 @@ class Cart {
             cookingTime: 0,
             price: this.price
         }
+
         data.cookingTime = data.products.length * 3
         return new Order(data)
 
@@ -132,6 +134,7 @@ class Cart {
                 }
                 initTime()
                 setTimeout(initTime, 5000)
+
                 const priceTarget = document.querySelector('#price')
                 const buyButtonPrice = document.querySelector('#buy-button-price')
                 buyButtonPrice.textContent = data.price

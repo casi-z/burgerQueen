@@ -1,5 +1,6 @@
 from django.db import models
-
+import datetime
+from django.utils import timezone
 class DishesModel(models.Model):
     name = models.CharField(max_length=100)
     price = models.IntegerField()
@@ -22,6 +23,8 @@ class OrderModel(models.Model):
     userId = models.CharField(max_length=100, default=None)
     type = models.CharField(max_length=100, default=None)
     restaurantId = models.IntegerField(default=0)
+    timeStamp = models.DateTimeField(default=timezone.now())
+    cookingTime = models.IntegerField(default=0)
     status = models.IntegerField(default=None)
     price = models.IntegerField(default=1)
     products = models.CharField(max_length=100)
